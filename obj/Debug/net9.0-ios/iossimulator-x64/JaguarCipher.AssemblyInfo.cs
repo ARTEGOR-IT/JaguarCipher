@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JaguarCipher")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+710ec409390cc4d3a76b6dbba72e65c4cdeffd65")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c2cffbbf8026b1535d25041a56d740320b451f3c")]
 [assembly: System.Reflection.AssemblyProductAttribute("JaguarCipher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JaguarCipher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
