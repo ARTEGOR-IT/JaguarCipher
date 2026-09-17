@@ -1,0 +1,93 @@
+{
+  "images": [
+    {
+      "idiom": "iphone",
+      "size": "20x20",
+      "scale": "2x",
+      "filename": "appicon_020x20@2x.png"
+    },
+    {
+      "idiom": "ipad",
+      "size": "20x20",
+      "scale": "2x",
+      "filename": "appicon_020x20@2x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "20x20",
+      "scale": "3x",
+      "filename": "appicon_020x20@3x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "29x29",
+      "scale": "2x",
+      "filename": "appicon_029x29@2x.png"
+    },
+    {
+      "idiom": "ipad",
+      "size": "29x29",
+      "scale": "2x",
+      "filename": "appicon_029x29@2x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "29x29",
+      "scale": "3x",
+      "filename": "appicon_029x29@3x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "40x40",
+      "scale": "2x",
+      "filename": "appicon_040x40@2x.png"
+    },
+    {
+      "idiom": "ipad",
+      "size": "40x40",
+      "scale": "2x",
+      "filename": "appicon_040x40@2x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "40x40",
+      "scale": "3x",
+      "filename": "appicon_040x40@3x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "60x60",
+      "scale": "2x",
+      "filename": "appicon_060x60@2x.png"
+    },
+    {
+      "idiom": "iphone",
+      "size": "60x60",
+      "scale": "3x",
+      "filename": "appicon_060x60@3x.png"
+    },
+    {
+      "idiom": "ipad",
+      "size": "76x76",
+      "scale": "2x",
+      "filename": "appicon_076x76@2x.png"
+    },
+    {
+      "idiom": "ipad",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "filename": "appicon_083.5x83.5@2x.png"
+    },
+    {
+      "idiom": "ios-marketing",
+      "size": "1024x1024",
+      "scale": "1x",
+      "filename": "appicon_0ItunesArtwork.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

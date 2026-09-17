@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="JaguarCipher.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#F4F6F8">
+
+    <ContentPage.Resources>
+
+        <!-- Основной стиль кнопок -->
+        <Style x:Key="MainButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#263238" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="Padding" Value="18,0" />
+        </Style>
+
+        <!-- Дополнительная кнопка -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#E9ECEF" />
+            <Setter Property="TextColor" Value="#263238" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="CornerRadius" Value="7" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+
+        <!-- Заголовки -->
+        <Style x:Key="SectionTitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#263238" />
+        </Style>
+
+        <!-- Подписи -->
+        <Style x:Key="CaptionStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="TextColor" Value="#607D8B" />
+        </Style>
+
+        <!-- Поля ввода -->
+        <Style x:Key="InputEditorStyle" TargetType="Editor">
+            <Setter Property="TextColor" Value="#263238" />
+            <Setter Property="PlaceholderColor" Value="#90A4AE" />
+            <Setter Property="BackgroundColor" Value="#F8F9FA" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <!-- Поля пароля -->
+        <Style x:Key="PasswordEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="#263238" />
+            <Setter Property="PlaceholderColor" Value="#90A4AE" />
+            <Setter Property="BackgroundColor" Value="#F8F9FA" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <!-- Переключатели -->
+        <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="TextColor" Value="#263238" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid
+        RowDefinitions="Auto,*,Auto"
+        Padding="24">
+
+        <!-- ================================================= -->
+        <!-- ШАПКА -->
+        <!-- ================================================= -->
+
+        <Grid
+            Grid.Row="0"
+            ColumnDefinitions="*,Auto"
+            Margin="0,0,0,20">
+
+            <VerticalStackLayout Spacing="3">
+
+                <Label
+                    Text="JaguarCipher"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#263238" />
+
+                <Label
+                    Text="Программное средство шифрования и дешифрования файлов"
+                    FontSize="13"
+                    TextColor="#607D8B" />
+
+            </VerticalStackLayout>
+
+            <Button
+                Grid.Column="1"
+                Text="Справка  F1"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Clicked="HelpButton_Clicked"
+                WidthRequest="120" />
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+        <!-- ================================================= -->
+
+        <Grid
+            Grid.Row="1"
+            ColumnDefinitions="260,*"
+            ColumnSpacing="20">
+
+
+            <!-- ============================================= -->
+            <!-- ЛЕВАЯ ПАНЕЛЬ -->
+            <!-- ============================================= -->
+
+            <Border
+                Grid.Column="0"
+                BackgroundColor="White"
+                Stroke="#E0E5E8"
+                StrokeThickness="1"
+                Padding="18">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+
+                <ScrollView
+                    x:Name="SettingsScrollView">
+
+                    <VerticalStackLayout Spacing="18">
+
+                        <Label
+                            Text="Параметры операции"
+                            Style="{StaticResource SectionTitleStyle}" />
+
+
+                        <!-- РЕЖИМ -->
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label
+                                Text="Режим работы"
+                                Style="{StaticResource CaptionStyle}" />
+
+                            <RadioButton
+                            x:Name="EncryptRadio"
+                            Content="Шифрование"
+                            IsChecked="True"
+                            GroupName="OperationMode"
+                            CheckedChanged="OperationMode_CheckedChanged"
+                            Style="{StaticResource RadioButtonStyle}" />
+
+                            <RadioButton
+                            x:Name="DecryptRadio"
+                            Content="Дешифрование"
+                            GroupName="OperationMode"
+                            CheckedChanged="OperationMode_CheckedChanged"
+                            Style="{StaticResource RadioButtonStyle}" />
+
+                        </VerticalStackLayout>
+
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#E5E8EA" />
+
+
+                        <!-- СПОСОБ ОБРАБОТКИ -->
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label
+                                Text="Способ обработки"
+                                Style="{StaticResource CaptionStyle}" />
+
+                            <RadioButton
+                                x:Name="TextRadio"
+                                Content="Текст"
+                                IsChecked="True"
+                                GroupName="DataMode"
+                                CheckedChanged="DataMode_CheckedChanged"
+                                Style="{StaticResource RadioButtonStyle}" />
+
+                            <RadioButton
+                                x:Name="FileRadio"
+                                Content="Файл"
+                                GroupName="DataMode"
+                                CheckedChanged="DataMode_CheckedChanged"
+                                Style="{StaticResource RadioButtonStyle}" />
+
+                        </VerticalStackLayout>
+
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#E5E8EA" />
+
+
+                        <!-- ПАРОЛЬ -->
+
+                        <VerticalStackLayout x:Name="PasswordLayout" Spacing="8" IsVisible="True">
+
+                            <Label
+                                Text="Пароль"
+                                Style="{StaticResource CaptionStyle}" />
+
+                            <Grid ColumnDefinitions="*,45">
+
+                                <Entry
+                                x:Name="PasswordEntry"
+                                Placeholder="Введите пароль"
+                                IsPassword="True"
+                                Keyboard="Numeric"
+                                HeightRequest="42"
+                                TextChanged="PasswordEntry_TextChanged"
+                                Style="{StaticResource PasswordEntryStyle}" />
+
+                                <Button
+                                    x:Name="PasswordVisibilityButton"
+                                    Grid.Column="1"
+                                    Text="◉"
+                                    FontSize="18"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#607D8B"
+                                    Clicked="PasswordVisibilityButton_Clicked" />
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Picker
+                            x:Name="EncryptionMethodPicker"
+                            Title="Выберите алгоритм"
+                            FontSize="14"
+                            TextColor="#263238"
+                            BackgroundColor="#F8F9FA"
+                            SelectedIndexChanged="OperationLogic_CheckedChanged">
+
+                                <Picker.Items>
+                                    <x:String>Цезарь</x:String>
+                                    <x:String>Виженер</x:String>
+                                    <x:String>Атбаш</x:String>
+                                    <x:String>Бофор</x:String>
+                                    <x:String>Тритемий</x:String>
+                                    <x:String>Вернам</x:String>
+                                </Picker.Items>
+
+                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+
+                            </Picker>
+
+                            <Label
+                            x:Name="ModeLabel"
+                            Text="Метод: моноалфавитная замена"
+                            FontSize="12"
+                            TextColor="#455A64" />
+
+                            <Label
+                            x:Name="KeyLabel"
+                            Text="Ключ: числовой сдвиг"
+                            FontSize="12"
+                            TextColor="#455A64" />
+
+                            <Label
+                            x:Name="AlphabetLabel"
+                            Text="Алфавит: 33 русские буквы"
+                            FontSize="12"
+                            TextColor="#455A64" />
+
+                            <Label
+                            x:Name="SecurityLabel"
+                            Text="Особенность: одинаковые буквы шифруются одинаково"
+                            FontSize="12"
+                            TextColor="#455A64" />
+
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </ScrollView>
+
+            </Border>
+
+
+            <!-- ============================================= -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ -->
+            <!-- ============================================= -->
+
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="*,Auto"
+                RowSpacing="15">
+
+
+                <!-- ОБЛАСТЬ ДАННЫХ -->
+
+                <Grid
+                    Grid.Row="0"
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="15">
+
+
+                    <!-- ИСХОДНЫЕ ДАННЫЕ -->
+
+                    <Border
+                        Grid.Column="0"
+                        BackgroundColor="White"
+                        Stroke="#E0E5E8"
+                        StrokeThickness="1"
+                        Padding="18">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+
+                        <Grid
+                            RowDefinitions="Auto,*,Auto"
+                            RowSpacing="12">
+
+                            <Grid
+                                ColumnDefinitions="*,Auto">
+
+                                <VerticalStackLayout>
+
+                                    <Label
+                                        Text="Исходные данные"
+                                        Style="{StaticResource SectionTitleStyle}" />
+
+                                    <Label
+                                        Text="Текст для шифрования или путь к файлу"
+                                        Style="{StaticResource CaptionStyle}" />
+
+                                </VerticalStackLayout>
+
+                                <Button
+                                    Grid.Column="1"
+                                    x:Name="SelectFileButton"
+                                    Text="Выбрать файл"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="SelectFileButton_Clicked"
+                                    IsVisible="False" />
+
+                            </Grid>
+
+
+                            <!-- ТЕКСТ -->
+
+                            <Editor
+                                x:Name="InputEditor"
+                                Grid.Row="1"
+                                Placeholder="Введите текст..."
+                                AutoSize="TextChanges"
+                                VerticalOptions="Fill"
+                                Style="{StaticResource InputEditorStyle}" />
+
+                            <Label
+                                x:Name="InputFileName"
+                                Grid.Row="1"
+                                VerticalOptions="Fill"
+                                Text="Здесь будет имя выбранного файла"
+                                TextColor="#263238"
+                                FontSize="16"
+                                IsVisible="False" />
+
+
+                            <!-- КНОПКИ -->
+
+                            <HorizontalStackLayout
+                                Grid.Row="2"
+                                Spacing="8">
+
+                                <Button
+                                    x:Name="InputButtonPaste"
+                                    Text="Вставить"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="PasteInputButton_Clicked" />
+
+                                <Button
+                                    x:Name="InputButtonCopy"
+                                    Text="Копировать"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="CopyInputButton_Clicked" />
+
+                                <Button
+                                    x:Name="InputButtonReset"
+                                    Text="Очистить"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="ClearInputButton_Clicked" />
+
+                            </HorizontalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- РЕЗУЛЬТАТ -->
+
+                    <Border
+                        Grid.Column="1"
+                        BackgroundColor="White"
+                        Stroke="#E0E5E8"
+                        StrokeThickness="1"
+                        Padding="18">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+
+                        <Grid
+                            RowDefinitions="Auto,*,Auto"
+                            RowSpacing="12">
+
+                            <VerticalStackLayout>
+
+                                <Label
+                                    Text="Результат"
+                                    Style="{StaticResource SectionTitleStyle}" />
+
+                                <Label
+                                    Text="Зашифрованные или дешифрованные данные"
+                                    Style="{StaticResource CaptionStyle}" />
+
+                            </VerticalStackLayout>
+
+
+                            <!-- РЕЗУЛЬТАТ -->
+
+                            <Editor
+                                x:Name="ResultEditor"
+                                Grid.Row="1"
+                                IsReadOnly="True"
+                                VerticalOptions="Fill"
+                                Style="{StaticResource InputEditorStyle}" />
+
+
+                            <!-- КНОПКИ -->
+
+                            <HorizontalStackLayout
+                                Grid.Row="2"
+                                Spacing="8">
+
+                                <Button
+                                    x:Name="ResultButtonCopy"
+                                    Text="Копировать"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="CopyResultButton_Clicked" />
+
+                                <Button
+                                    x:Name="ResultButtonReset"
+                                    Text="Очистить"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="ClearResultButton_Clicked" />
+
+                                <Button
+                                    x:Name="ResultButtonSave"
+                                    Text="Сохранить файл"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Clicked="SaveFile_Clicked" />
+
+                            </HorizontalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+
+                <!-- ГЛАВНАЯ КНОПКА -->
+
+                <Button
+                    Grid.Row="1"
+                    x:Name="ProcessButton"
+                    Text="ЗАШИФРОВАТЬ"
+                    Style="{StaticResource MainButtonStyle}"
+                    FontSize="15"
+                    HeightRequest="50"
+                    Clicked="ProcessButton_Clicked" />
+
+            </Grid>
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- СТАТУС -->
+        <!-- ================================================= -->
+
+        <Border
+            Grid.Row="2"
+            BackgroundColor="White"
+            Stroke="#E0E5E8"
+            StrokeThickness="1"
+            Padding="12,8"
+            Margin="0,15,0,0">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+
+            <Grid ColumnDefinitions="Auto,*,Auto">
+
+                <Label
+                    Text="Состояние:"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    TextColor="#455A64" />
+
+                <Label
+                    x:Name="StatusLabel"
+                    Grid.Column="1"
+                    Text="Готово к работе"
+                    FontSize="13"
+                    TextColor="#607D8B"
+                    Margin="8,0,0,0" />
+
+                <Label
+                    Grid.Column="2"
+                    Text="JaguarCipher v1.0"
+                    FontSize="12"
+                    TextColor="#90A4AE" />
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>

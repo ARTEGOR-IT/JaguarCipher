@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="JaguarCipher.Resources.Pages.HelpPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#80000000">
+
+    <Grid
+        Padding="30,40"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+
+        <Border
+            MaximumWidthRequest="720"
+            MaximumHeightRequest="850"
+            BackgroundColor="White"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 22"
+            Padding="28">
+
+            <Border.Shadow>
+                <Shadow
+                    Brush="Black"
+                    Opacity="0.30"
+                    Radius="25"
+                    Offset="0,8" />
+            </Border.Shadow>
+
+            <Grid RowDefinitions="Auto,*,Auto">
+
+                <!-- ================= HEADER ================= -->
+
+                <Grid
+                    Grid.Row="0"
+                    ColumnDefinitions="*,Auto"
+                    Margin="0,0,0,20">
+
+                    <VerticalStackLayout Spacing="3">
+
+                        <Label
+                            Text="Справка"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="#202020" />
+
+                        <Label
+                            Text="JaguarCipher • версия 1.0 • Разработано компанией Jaguar (Теребов Егор - ИСП-324П)"
+                            FontSize="14"
+                            TextColor="#777777" />
+
+                    </VerticalStackLayout>
+
+                    <Button
+                        Grid.Column="1"
+                        Text="✕"
+                        FontSize="18"
+                        WidthRequest="42"
+                        HeightRequest="42"
+                        CornerRadius="21"
+                        Padding="0"
+                        BackgroundColor="#F0F0F0"
+                        TextColor="#333333"
+                        Clicked="CloseButton_Clicked" />
+
+                </Grid>
+
+
+                <!-- ================= CONTENT ================= -->
+
+                <ScrollView Grid.Row="1">
+
+                    <VerticalStackLayout Spacing="18">
+
+                        <!-- О программе -->
+
+                        <Border
+                            BackgroundColor="#F7F7F7"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 14"
+                            Padding="18">
+
+                            <VerticalStackLayout Spacing="8">
+
+                                <Label
+                                    Text="О программе"
+                                    FontSize="19"
+                                    FontAttributes="Bold"
+                                    TextColor="#222222" />
+
+                                <Label
+                                    Text="JaguarCipher — учебное приложение для шифрования и расшифрования текстовых данных и файлов с использованием классических криптографических алгоритмов."
+                                    FontSize="15"
+                                    TextColor="#555555"
+                                    LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+
+                        <!-- Режимы работы -->
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label
+                                Text="Режимы работы"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#222222" />
+
+                            <Label
+                                Text="Шифрование"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Label
+                                Text="Защита исходных данных с использованием выбранного криптографического алгоритма."
+                                FontSize="15"
+                                TextColor="#555555"
+                                LineBreakMode="WordWrap" />
+
+                            <Label
+                                Text="Расшифрование"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="#333333"
+                                Margin="0,5,0,0" />
+
+                            <Label
+                                Text="Восстановление исходных данных при наличии корректного пароля и необходимых параметров."
+                                FontSize="15"
+                                TextColor="#555555"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- Способы обработки -->
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label
+                                Text="Способы обработки"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#222222" />
+
+                            <Grid
+                                ColumnDefinitions="Auto,*"
+                                RowDefinitions="Auto,Auto"
+                                ColumnSpacing="14"
+                                RowSpacing="10">
+
+                                <Border
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    BackgroundColor="#EEEEEE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 8"
+                                    Padding="10,6">
+
+                                    <Label
+                                        Text="Текст"
+                                        FontAttributes="Bold"
+                                        TextColor="#333333" />
+
+                                </Border>
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="Работа с текстовой информацией."
+                                    FontSize="15"
+                                    TextColor="#555555"
+                                    VerticalOptions="Center" />
+
+
+                                <Border
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    BackgroundColor="#EEEEEE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 8"
+                                    Padding="10,6">
+
+                                    <Label
+                                        Text="Файл"
+                                        FontAttributes="Bold"
+                                        TextColor="#333333" />
+
+                                </Border>
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="Шифрование и расшифрование файлов, выбранных на компьютере."
+                                    FontSize="15"
+                                    TextColor="#555555"
+                                    VerticalOptions="Center" />
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- Криптографические параметры -->
+
+                        <Border
+                        BackgroundColor="#F7F7F7"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 14"
+                        Padding="18">
+
+                            <VerticalStackLayout Spacing="10">
+
+                                <Label
+                                Text="Криптографические параметры"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="#222222" />
+
+                                <Grid
+                                ColumnDefinitions="*,Auto"
+                                RowDefinitions="
+                                    Auto,
+                                    Auto,
+                                    Auto,
+                                    Auto,
+                                    Auto,
+                                    Auto,
+                                    Auto"
+                                RowSpacing="8">
+
+                                    <!-- Алгоритмы -->
+
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Алгоритмы"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="Цезарь, Виженер, Атбаш, Бофор, Тритемий, Вернам"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333"
+                                    HorizontalTextAlignment="End" />
+
+                                    <!-- Алфавит -->
+
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="Алфавит"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="33 русские буквы"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                    <!-- Цезарь -->
+
+                                    <Label
+                                    Grid.Row="2"
+                                    Text="Цезарь"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Text="Числовой сдвиг"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                    <!-- Виженер -->
+
+                                    <Label
+                                    Grid.Row="3"
+                                    Text="Виженер"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Text="Ключевое слово"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                    <!-- Бофор -->
+
+                                    <Label
+                                    Grid.Row="4"
+                                    Text="Бофор"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Text="Полиалфавитная замена"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                    <!-- Тритемий -->
+
+                                    <Label
+                                    Grid.Row="5"
+                                    Text="Тритемий"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="5"
+                                    Grid.Column="1"
+                                    Text="Изменяющийся сдвиг"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                    <!-- Вернам -->
+
+                                    <Label
+                                    Grid.Row="6"
+                                    Text="Вернам"
+                                    FontSize="15"
+                                    TextColor="#666666" />
+
+                                    <Label
+                                    Grid.Row="6"
+                                    Grid.Column="1"
+                                    Text="Ключевое слово"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                </Grid>
+
+                                <Label
+                                Text="Все алгоритмы работают с русским алфавитом из 33 букв. Пробелы, цифры и специальные символы не изменяются."
+                                FontSize="15"
+                                TextColor="#555555"
+                                Margin="0,3,0,0"
+                                LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+
+                        <!-- Важная информация -->
+
+                        <Border
+                            BackgroundColor="#FFF7E6"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 14"
+                            Padding="18">
+
+                            <VerticalStackLayout Spacing="7">
+
+                                <Label
+                                    Text="!!!Важно!!!"
+                                    FontSize="19"
+                                    FontAttributes="Bold"
+                                    TextColor="#9A6200" />
+
+                                <Label
+                                    Text="Пароль необходимо сохранить. При его утрате восстановить зашифрованные данные будет невозможно."
+                                    FontSize="15"
+                                    TextColor="#664400"
+                                    LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                </ScrollView>
+
+
+                <!-- ================= FOOTER ================= -->
+
+                <Button
+                    Grid.Row="2"
+                    Text="Понятно"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="12"
+                    Margin="0,20,0,0"
+                    BackgroundColor="#333333"
+                    TextColor="White"
+                    Clicked="CloseButton_Clicked" />
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>
